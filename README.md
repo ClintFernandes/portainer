@@ -1,24 +1,19 @@
-version: "3.5"
-services:
-    portainer_web:
-        image: portainer/portainer-ce:2.19.4
-        container_name: portainer_web
-        command: -H unix:///var/run/docker.sock
-        ports:
-          - 9000:9000
-          - 9443:9443
-        volumes:
-          - /var/run/docker.sock:/var/run/docker.sock
-          - portainer_web:/data
-        restart: unless-stopped
-        networks:
-          - portainer
 
-volumes:
-    portainer_web:
-        driver: local
-        name: portainer_web
+# Portainer
 
-networks:
-    portainer:
-        name: portainer
+A simple docker-compose file to spin up a portainer container to manage your docker containers, images, networks, volumes and much more.
+
+## Deployment
+
+Run these commands to clone the repository and spin up the container.
+
+```bash
+  git clone https://github.com/ClintFernandes/portainer.git
+```
+```bash
+  cd portainer
+```
+```bash
+  docker-compose up -d
+```
+Access portainer on port 9000 and 9443
